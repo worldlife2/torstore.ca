@@ -21,12 +21,48 @@
     </video>
     <div>
       <h1>
-        We&rsquo;ll be back soon!</h1>
+        Thank You For Reaching My Site!</h1>
       </h1>
-      <p>Sorry for the inconvenience but we&rsquo;re performing some maintenance at the moment. We&rsquo;ll be
-        back online shortly!</p>
-      <p><a href="mailto:worldlive-2@hotmail.com">The Team.</a></p>
+      <p>Please feel free to leave a brief messge, and I will get back to you as soon as possible!</p>
+      <!-- <p><a href="mailto:worldlive-2@hotmail.com">The Team.</a></p> -->
     </div>
+    <!-- the contact us form -->
+    <div class="fcf-body">
+      <div id="fcf-form">
+        <h3 class='fcf-h3'>Contact Form</h3>
+        <form id="fcf-form-id" class="fcf-form-class" method="post" action="contact-form-process.php">
+          <div class="fcf-form-group">
+            <label for="Name" class="fcf-label">Your name</label>
+            <div class="fcf-input-group">
+              <input type="text" id="Name" name="Name" class="fcf-form-control" required>
+            </div>
+          </div>
+
+          <div class="fcf-form-group">
+            <label for="Email" class="fcf-label">Your email address</label>
+            <div class="fcf-input-group">
+              <input type="email" id="Email" name="Email" class="fcf-form-control" required>
+            </div>
+          </div>
+
+          <div class="fcf-form-group">
+            <label for="Message" class="fcf-label">Your message</label>
+            <div class="fcf-input-group">
+              <textarea id="Message" name="Message" class="fcf-form-control" rows="6" maxlength="3000"
+                required></textarea>
+            </div>
+          </div>
+
+          <div class="fcf-form-group">
+            <button type="submit" id="fcf-button" class="fcf-btn fcf-btn-primary fcf-btn-lg fcf-btn-block">Send
+              Message</button>
+          </div>
+        </form>
+
+      </div>
+    </div>
+
+
     <!-- video switch -->
     <button class="switch-btn">
       <span>play</span>
