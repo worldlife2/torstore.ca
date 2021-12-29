@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Personal Site</title>
+    <!-- styles -->
+    <link rel="stylesheet" href="./styles.css" />
+</head>
+
+<body>
+    <!-- preloader -->
+    <div class="preloader">
+        <img src="./preloader.gif" alt="preloader">
+    </div>
+    <!-- header -->
+    <header>
+        <video class="video-container" muted autoplay loop>
+            <source src="./video.mp4" type="video/mp4" />
+        </video>
+        <div>
+            <h1>
+                Thank You For Reaching My Site!</h1>
+            </h1>
+            <p>Please feel free to leave a brief messge, and I will get back to you as soon as possible!</p>
+            <!-- <p><a href="mailto:worldlive-2@hotmail.com">The Team.</a></p> -->
+        </div>
+        <!-- the contact form -->
+        <div class="fcf-body">
+            <div id="fcf-form">
+                <h3 class='fcf-h3'>Contact Form</h3>
+                <form id="fcf-form-id" class="fcf-form-class" method="POST" action="contact-form-process.php">
+                    <div class="fcf-form-group">
+                        <label for="Name" class="fcf-label">Your name</label>
+                        <div class="fcf-input-group">
+                            <input type="text" id="Name" name="Name" class="fcf-form-control" required>
+                        </div>
+                    </div>
+
+                    <div class="fcf-form-group">
+                        <label for="Email" class="fcf-label">Your email address</label>
+                        <div class="fcf-input-group">
+                            <input type="email" id="Email" name="Email" class="fcf-form-control" required>
+                        </div>
+                    </div>
+
+                    <div class="fcf-form-group">
+                        <label for="Subject" class="fcf-label">Subject</label>
+                        <div class="fcf-input-group">
+                            <input type="text" id="Subject" name="Subject" class="fcf-form-control" required>
+                        </div>
+                    </div>
+
+                    <div class="fcf-form-group">
+                        <label for="Message" class="fcf-label">Your message</label>
+                        <div class="fcf-input-group">
+                            <textarea id="Message" name="Message" class="fcf-form-control" rows="6" maxlength="3000"
+                                required></textarea>
+                        </div>
+                    </div>
+
+                    <div class="fcf-form-group">
+                        <button type="submit" id="fcf-button"
+                            class="fcf-btn fcf-btn-primary fcf-btn-lg fcf-btn-block">Send
+                            Message</button>
+                    </div>
+                </form>
+
+            </div>
+        </div>
+
+
+        <!-- video switch -->
+        <button class="switch-btn">
+            <span>play</span>
+            <span>
+                pause
+            </span>
+            <span class="switch"></span> </button>
+    </header>
+
+    <!-- javascript -->
+    <script src="./app.js"></script>
+    <!-- validate.js.org -->
+    <!-- <script src="//cdnjs.cloudflare.com/ajax/libs/validate.js/0.13.1/validate.min.js"></script> -->
+
+    <!-- data validation script -->
+    <script>
+        const constraints = {
+            Name: {
+                presence: {
+                    allowEmpty: false
+                }
+            },
+            Email: {
+                presence: {
+                    allowEmpty: false
+                },
+                Email: true
+            },
+            Message: {
+                presence: {
+                    allowEmpty: false
+                }
+            }
+        };
+
+        const form = document.getElementById('fcf-form-id');
+
+        form.addEventListener('submit', function (event) {
+            const formValues = {
+                Name: form.elements.Name.value,
+                Email: form.elements.Email.value,
+                Message: form.elements.Message.value
+            };
+            const errors = validate(formValues, constraints);
+            if (errors) {
+                event.preventDefault();
+                const errorMessage = Object
+                    .values(errors)
+                    .map(function (fieldValues) {
+                        return fieldValues.join(', ')
+                    })
+                    .join("\n");
+
+                alert(errorMessage);
+            }
+        }, false);
+    </script>
+</body>
+
+</html>
